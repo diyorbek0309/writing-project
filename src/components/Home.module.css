@@ -1,0 +1,20 @@
+.HSideleft {
+  width: 10%;
+}
+
+.HMain {
+  width: 70%;
+}
+
+.Main_input {
+  font-size: 2rem;
+}
+
+.Text {
+  font-size: 2rem;
+  line-height: 150%;
+}
+
+.correctText {
+  color: green;
+}
