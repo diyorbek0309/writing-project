@@ -10,7 +10,7 @@ import arial_t from "../assets/arial_t.png";
 const HSideleft = () => {
   return (
     <div className={styles.HSideleft}>
-      <button>
+      <button className={styles.active}>
         <img src={refresh_icon} alt="Refresh" />
       </button>
       <Switch img1={t_icon} img2={arial_t} />
