@@ -5,9 +5,25 @@
 }
 
 .Home {
-  background-color: #000;
-  color: #fff;
   height: 90vh;
   display: flex;
   padding: 2.5rem;
+}
+
+.light {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.times {
+  font-family: "Times New Roman", Times, serif;
 }
