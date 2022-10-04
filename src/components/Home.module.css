@@ -1,0 +1,50 @@
+.HSideleft {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.HSideleft button {
+  background-color: antiquewhite;
+  border: none;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  /* border-radius: 0.3rem; */
+}
+.HSideleft button:nth-child(1) {
+  margin-bottom: 1.5rem;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.HSideleft button:nth-child(2) {
+  margin-bottom: 1.5rem;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.active {
+  width: 7rem;
+  height: 4rem;
+  border-radius: 0.3rem;
+}
+
+.HMain {
+  width: 70%;
+}
+
+.Main_input {
+  font-size: 2rem;
+}
+
+.Text {
+  font-size: 2rem;
+  line-height: 150%;
+}
+
+.correctText {
+  color: green;
+}
+
+
