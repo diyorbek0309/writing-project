@@ -12,7 +12,6 @@ const Home = () => {
   let [working, setWorking] = useState(true);
   let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
-  
 
   const handleChange = (e) => {
     if (e.target.value === splittedText[0] + " ") {
@@ -24,7 +23,6 @@ const Home = () => {
     }
 
     if (bool) {
-      
       const timer = setInterval(() => {
         if (count === 0) {
           clearInterval(timer);
@@ -53,6 +51,23 @@ const Home = () => {
     setIsLight(false);
   };
 
+  const resetAll = () => {
+    console.log(correctText, splittedText);
+    correctText
+      .split(" ")
+      .reverse()
+      .forEach((word) => {
+        if (word.trim() !== "") splittedText.unshift(word);
+      });
+    setCorrectText("");
+    console.log(correctText, splittedText);
+    var highestTimeoutId = setTimeout(";");
+    for (var i = 0; i < highestTimeoutId; i++) {
+      clearTimeout(i);
+    }
+    setCount(60);
+  };
+
   return (
     <div
       className={`Home ${isLight ? "light" : "dark"} ${
@@ -66,13 +81,14 @@ const Home = () => {
             toggleTimes={toggleTimes}
             toggleLight={toggleLight}
             toggleDark={toggleDark}
+            resetAll={resetAll}
           />
           <HMain
             text={splittedText.join(" ")}
             correctText={correctText}
             handleChange={handleChange}
           />
-          <HSideright count={count} bool={bool}/>
+          <HSideright count={count} bool={bool} />
         </>
       ) : (
         <div style={{ fontSize: 48 }}>
