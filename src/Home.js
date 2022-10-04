@@ -1,18 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import ReactModal from "react-modal";
 import HMain from "./components/HMain";
 import HSideleft from "./components/HSideleft";
 import HSideright from "./components/HSideright";
-import Modal from "./components/Modal";
+import FinishedModal from "./components/Modal";
+
+const customStyles = {
+  content: {
+    width: 400,
+    fontSize: 24,
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 const Home = () => {
   const text = `To help you get started, put together a list of 22 fun Javascript projects you can start working on right now. I included both beginner-level and intermediate level ideas to make sure things get boring. Browse through the list and click through to any JavaScript project you find intriguing. If you find a project idea that matches your goals and skill level, start building it right away!`;
   let [correctText, setCorrectText] = useState("");
   let [splittedText, setSplittedText] = useState(text.split(" "));
   let [bool, setBool] = useState(true);
-  let [count, setCount] = useState(60);
+  let [count, setCount] = useState(6);
   let [working, setWorking] = useState(true);
   let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  let firstNameInputRef = useRef(null);
+  let lastNameInputRef = useRef(null);
+  let subtitle;
+
+  useEffect(() => {
+    setIsOpen(true);
+  }, []);
+
+  function afterOpenModal() {
+    subtitle.style.color = "#f00";
+  }
 
   const handleChange = (e) => {
     if (e.target.value === splittedText[0] + " ") {
@@ -62,11 +89,17 @@ const Home = () => {
       });
     setCorrectText("");
     console.log(correctText, splittedText);
-    var highestTimeoutId = setTimeout(";");
-    for (var i = 0; i < highestTimeoutId; i++) {
+    const highestTimeoutId = setTimeout(";");
+    for (let i = 0; i < highestTimeoutId; i++) {
       clearTimeout(i);
     }
     setCount(60);
+  };
+
+  const submitModal = () => {
+    setIsOpen(false);
+    console.log(firstNameInputRef.current.value);
+    console.log(lastNameInputRef.current.value);
   };
 
   return (
@@ -77,6 +110,31 @@ const Home = () => {
     >
       {working ? (
         <>
+          <div>
+            <ReactModal
+              isOpen={modalIsOpen}
+              onAfterOpen={afterOpenModal}
+              style={customStyles}
+              contentLabel="Example Modal"
+            >
+              <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+                Ism va familiyangizni kiriting:{" "}
+              </h2>
+              <input
+                type="text"
+                placeholder="Ismingiz"
+                style={{ padding: 8, fontSize: 20 }}
+                ref={firstNameInputRef}
+              />
+              <input
+                type="text"
+                placeholder="Familiyangiz"
+                style={{ padding: 8, fontSize: 20 }}
+                ref={lastNameInputRef}
+              />
+              <button onClick={submitModal}>Qo'shish</button>
+            </ReactModal>
+          </div>
           <HSideleft
             toggleArial={toggleArial}
             toggleTimes={toggleTimes}
@@ -90,9 +148,16 @@ const Home = () => {
             handleChange={handleChange}
           />
           <HSideright count={count} bool={bool} />
+          <h3>
+            {firstNameInputRef.current && lastNameInputRef.current
+              ? firstNameInputRef.current.value +
+                " " +
+                lastNameInputRef.current.value
+              : ""}
+          </h3>
         </>
       ) : (
-        <Modal correctText={correctText} />
+        <FinishedModal correctText={correctText} />
       )}
     </div>
   );

@@ -36,6 +36,9 @@
 
 .Main_input {
   font-size: 2rem;
+  border: none;
+  border-bottom: #656565 solid 2px;
+  outline: none;
 }
 
 .Text {
