@@ -46,3 +46,31 @@
 .correctText {
   color: green;
 }
+
+.Modalcontainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.Modal_par {
+  font-size: 1.8rem;
+}
+
+.Modal {
+  background: #656565;
+  height: 400px;
+  width: 300px;
+  margin-top: 1.2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 15px #202020aa;
+}
+
+.Result {
+  background: #0e0eff;
+  height: 10rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
