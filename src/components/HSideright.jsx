@@ -1,11 +1,9 @@
 import "./anime.css";
 
-
-const HSideright = ({ count , bool }) => {
-  
+const HSideright = ({ count, bool }) => {
   return (
     <>
-      <div className={`anime ${!bool ? 'anime2': ""}` }>{count}</div>
+      <div className={`anime ${!bool ? "anime2" : ""}`}>{count}</div>
     </>
   );
 };

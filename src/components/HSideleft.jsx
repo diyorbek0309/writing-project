@@ -7,10 +7,13 @@ import refresh_icon from "../assets/refresh_icon.png";
 import t_icon from "../assets/t_icon.png";
 import arial_t from "../assets/arial_t.png";
 
-const HSideleft = ({ toggleLight, toggleDark, toggleArial, toggleTimes, resetAll }) => {
-
-
-
+const HSideleft = ({
+  toggleLight,
+  toggleDark,
+  toggleArial,
+  toggleTimes,
+  resetAll,
+}) => {
   return (
     <div className={styles.HSideleft}>
       <button className={styles.active} onClick={resetAll}>

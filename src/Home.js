@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HMain from "./components/HMain";
 import HSideleft from "./components/HSideleft";
 import HSideright from "./components/HSideright";
+import Modal from "./components/Modal";
 
 const Home = () => {
   const text = `To help you get started, put together a list of 22 fun Javascript projects you can start working on right now. I included both beginner-level and intermediate level ideas to make sure things get boring. Browse through the list and click through to any JavaScript project you find intriguing. If you find a project idea that matches your goals and skill level, start building it right away!`;
@@ -91,9 +92,7 @@ const Home = () => {
           <HSideright count={count} bool={bool} />
         </>
       ) : (
-        <div style={{ fontSize: 48 }}>
-          Siz {correctText.split(" ").length} ta so'z yozdingiz!
-        </div>
+        <Modal correctText={correctText} />
       )}
     </div>
   );
