@@ -9,27 +9,44 @@
   background-color: antiquewhite;
   border: none;
   padding: 1rem;
-  margin-bottom: 0.5rem;
-  /* border-radius: 0.3rem; */
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  transition: 0.5s;
 }
+
 .HSideleft button:nth-child(1) {
   margin-bottom: 1.5rem;
   border-top-left-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  margin-left: 0.3rem;
+}
+
+.HSideleft button:nth-child(1):active {
+  transform: scale(0.95);
+  background-color: green;
 }
 
 .HSideleft button:nth-child(2) {
   margin-bottom: 1.5rem;
   border-top-right-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  margin-left: 1rem;
+}
+
+.HSideleft button:nth-child(2):active {
+  transform: scale(0.95);
+  background-color: orange;
 }
 
 .active {
-  width: 7rem;
+  width: 8rem;
   height: 4rem;
   border-radius: 0.3rem;
 }
-
+.HSideleft button.active:active {
+  transform: scale(0.95);
+  background-color: rgb(18, 29, 237);
+}
 .HMain {
   width: 70%;
 }
