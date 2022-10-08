@@ -39,6 +39,17 @@
   border: none;
   border-bottom: #656565 solid 2px;
   outline: none;
+  background-color: #fff;
+  color: #000;
+}
+
+.tun {
+  font-size: 2rem;
+  border: none;
+  border-bottom: #656565 solid 2px;
+  outline: none;
+  background-color: #000;
+  color: #fff;
 }
 
 .Text {

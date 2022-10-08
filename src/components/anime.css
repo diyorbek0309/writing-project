@@ -1,10 +1,10 @@
 .anime {
+  margin: 0 35px;
   width: 40px;
   height: 500px;
   background-color: black;
   animation-duration: 64s;
   animation-timing-function: linear;
-  color: white;
   font-size: 25px;
   border-radius: 15px;
   text-align: center;
@@ -26,3 +26,13 @@
 .anime2 {
   animation-name: identifier;
 }
+
+.kun {
+ color: white;
+ background-color: black;
+}
+
+.tun {
+  color: black;
+  background-color: white;
+ }

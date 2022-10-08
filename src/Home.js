@@ -23,7 +23,8 @@ const Home = () => {
   let [correctText, setCorrectText] = useState("");
   let [splittedText, setSplittedText] = useState(text.split(" "));
   let [bool, setBool] = useState(true);
-  let [count, setCount] = useState(6);
+  let [bool1, setBool1] = useState(true);
+  let [count, setCount] = useState(60);
   let [working, setWorking] = useState(true);
   let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
@@ -42,6 +43,8 @@ const Home = () => {
   }
 
   const handleChange = (e) => {
+    setBool1(false);
+  
     if (e.target.value === splittedText[0] + " ") {
       e.target.value = "";
       correctText += splittedText[0] + " ";
@@ -60,6 +63,7 @@ const Home = () => {
         }
       }, 1000);
       setBool(false);
+      setBool1(false);
     }
   };
 
@@ -94,6 +98,8 @@ const Home = () => {
       clearTimeout(i);
     }
     setCount(60);
+    setBool1(true);
+    setBool(true);
   };
 
   const submitModal = () => {
@@ -123,16 +129,16 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Ismingiz"
-                style={{ padding: 8, fontSize: 20 }}
+                style={{ padding: 8, fontSize: 20, margin: '10px 0' }}
                 ref={firstNameInputRef}
               />
               <input
                 type="text"
                 placeholder="Familiyangiz"
-                style={{ padding: 8, fontSize: 20 }}
+                style={{ padding: 8, fontSize: 20, margin: '10px 0' }}
                 ref={lastNameInputRef}
               />
-              <button onClick={submitModal}>Qo'shish</button>
+              <button onClick={submitModal} style={{padding: 3, width: 120, fontSize: 23, margin: '10px 0'}}>Qo'shish</button>
             </ReactModal>
           </div>
           <HSideleft
@@ -146,12 +152,13 @@ const Home = () => {
             text={splittedText.join(" ")}
             correctText={correctText}
             handleChange={handleChange}
+            isLight={isLight}
           />
-          <HSideright count={count} bool={bool} />
-          <h3>
+          <HSideright count={count} bool1={bool1} isLight={isLight}/>
+          <h3 style={{fontSize: 25, width: 300, textAlign: "center"}}>
             {firstNameInputRef.current && lastNameInputRef.current
               ? firstNameInputRef.current.value +
-                " " +
+                "  " +
                 lastNameInputRef.current.value
               : ""}
           </h3>
