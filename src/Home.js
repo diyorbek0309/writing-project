@@ -24,18 +24,26 @@ const Home = () => {
   let [splittedText, setSplittedText] = useState(text.split(" "));
   let [bool, setBool] = useState(true);
   let [bool1, setBool1] = useState(true);
-  let [count, setCount] = useState(60);
+  let [count, setCount] = useState(2);
   let [working, setWorking] = useState(true);
   let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
+  let [fullName, setFullName] = useState({ firstName: "", lastName: "" });
 
   let firstNameInputRef = useRef(null);
   let lastNameInputRef = useRef(null);
   let subtitle;
 
   useEffect(() => {
-    setIsOpen(true);
+    if (localStorage.getItem("firstName") === null) {
+      setIsOpen(true);
+    } else {
+      setFullName({
+        firstName: localStorage.getItem("firstName"),
+        lastName: localStorage.getItem("lastName"),
+      });
+    }
   }, []);
 
   function afterOpenModal() {
@@ -44,7 +52,7 @@ const Home = () => {
 
   const handleChange = (e) => {
     setBool1(false);
-  
+
     if (e.target.value === splittedText[0] + " ") {
       e.target.value = "";
       correctText += splittedText[0] + " ";
@@ -84,7 +92,6 @@ const Home = () => {
   };
 
   const resetAll = () => {
-    console.log(correctText, splittedText);
     correctText
       .split(" ")
       .reverse()
@@ -92,7 +99,6 @@ const Home = () => {
         if (word.trim() !== "") splittedText.unshift(word);
       });
     setCorrectText("");
-    console.log(correctText, splittedText);
     const highestTimeoutId = setTimeout(";");
     for (let i = 0; i < highestTimeoutId; i++) {
       clearTimeout(i);
@@ -104,8 +110,12 @@ const Home = () => {
 
   const submitModal = () => {
     setIsOpen(false);
-    console.log(firstNameInputRef.current.value);
-    console.log(lastNameInputRef.current.value);
+    localStorage.setItem("firstName", firstNameInputRef.current.value);
+    localStorage.setItem("lastName", lastNameInputRef.current.value);
+    setFullName({
+      firstName: firstNameInputRef.current.value,
+      lastName: lastNameInputRef.current.value,
+    });
   };
 
   return (
@@ -129,16 +139,26 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Ismingiz"
-                style={{ padding: 8, fontSize: 20, margin: '10px 0' }}
+                style={{ padding: 8, fontSize: 20, margin: "10px 0" }}
                 ref={firstNameInputRef}
               />
               <input
                 type="text"
                 placeholder="Familiyangiz"
-                style={{ padding: 8, fontSize: 20, margin: '10px 0' }}
+                style={{ padding: 8, fontSize: 20, margin: "10px 0" }}
                 ref={lastNameInputRef}
               />
-              <button onClick={submitModal} style={{padding: 3, width: 120, fontSize: 23, margin: '10px 0'}}>Qo'shish</button>
+              <button
+                onClick={submitModal}
+                style={{
+                  padding: 3,
+                  width: 120,
+                  fontSize: 23,
+                  margin: "10px 0",
+                }}
+              >
+                Qo'shish
+              </button>
             </ReactModal>
           </div>
           <HSideleft
@@ -154,17 +174,23 @@ const Home = () => {
             handleChange={handleChange}
             isLight={isLight}
           />
-          <HSideright count={count} bool1={bool1} isLight={isLight}/>
-          <h3 style={{fontSize: 25, width: 300, textAlign: "center"}}>
-            {firstNameInputRef.current && lastNameInputRef.current
-              ? firstNameInputRef.current.value +
-                "  " +
-                lastNameInputRef.current.value
+          <HSideright count={count} bool1={bool1} isLight={isLight} />
+          <h3 style={{ fontSize: 25, width: 300, textAlign: "center" }}>
+            {fullName.firstName + "  " + fullName.lastName}
+            <br />
+            {correctText.split(" ").length - 1
+              ? correctText.split(" ").length - 1
               : ""}
           </h3>
         </>
       ) : (
-        <FinishedModal correctText={correctText} />
+        <FinishedModal
+          correctText={correctText}
+          percent={
+            (correctText.split(" ").length - 1) / (text.split(" ").length - 1)
+          }
+          resetAll={resetAll}
+        />
       )}
     </div>
   );
