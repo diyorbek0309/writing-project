@@ -1,0 +1,38 @@
+.anime {
+  margin: 0 35px;
+  width: 40px;
+  height: 500px;
+  background-color: black;
+  animation-duration: 64s;
+  animation-timing-function: linear;
+  font-size: 25px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+@keyframes identifier {
+  0% {
+    height: 500px;
+  }
+  70% {
+    background-color: black;
+  }
+  100% {
+    height: 0;
+    background-color: red;
+  }
+}
+
+.anime2 {
+  animation-name: identifier;
+}
+
+.kun {
+ color: white;
+ background-color: black;
+}
+
+.tun {
+  color: black;
+  background-color: white;
+ }

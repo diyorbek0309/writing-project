@@ -1,19 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import ReactModal from "react-modal";
 import HMain from "./components/HMain";
 import HSideleft from "./components/HSideleft";
 import HSideright from "./components/HSideright";
+import FinishedModal from "./components/Modal";
+
+const customStyles = {
+  content: {
+    width: 400,
+    fontSize: 24,
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 const Home = () => {
   const text = `To help you get started, put together a list of 22 fun Javascript projects you can start working on right now. I included both beginner-level and intermediate level ideas to make sure things get boring. Browse through the list and click through to any JavaScript project you find intriguing. If you find a project idea that matches your goals and skill level, start building it right away!`;
   let [correctText, setCorrectText] = useState("");
   let [splittedText, setSplittedText] = useState(text.split(" "));
   let [bool, setBool] = useState(true);
-  let [count, setCount] = useState(9);
+  let [bool1, setBool1] = useState(true);
+  let [count, setCount] = useState(60);
   let [working, setWorking] = useState(true);
   let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  let firstNameInputRef = useRef(null);
+  let lastNameInputRef = useRef(null);
+  let subtitle;
+
+  useEffect(() => {
+    setIsOpen(true);
+  }, []);
+
+  function afterOpenModal() {
+    subtitle.style.color = "#f00";
+  }
 
   const handleChange = (e) => {
+    setBool1(false);
+  
     if (e.target.value === splittedText[0] + " ") {
       e.target.value = "";
       correctText += splittedText[0] + " ";
@@ -32,6 +63,7 @@ const Home = () => {
         }
       }, 1000);
       setBool(false);
+      setBool1(false);
     }
   };
 
@@ -51,6 +83,31 @@ const Home = () => {
     setIsLight(false);
   };
 
+  const resetAll = () => {
+    console.log(correctText, splittedText);
+    correctText
+      .split(" ")
+      .reverse()
+      .forEach((word) => {
+        if (word.trim() !== "") splittedText.unshift(word);
+      });
+    setCorrectText("");
+    console.log(correctText, splittedText);
+    const highestTimeoutId = setTimeout(";");
+    for (let i = 0; i < highestTimeoutId; i++) {
+      clearTimeout(i);
+    }
+    setCount(60);
+    setBool1(true);
+    setBool(true);
+  };
+
+  const submitModal = () => {
+    setIsOpen(false);
+    console.log(firstNameInputRef.current.value);
+    console.log(lastNameInputRef.current.value);
+  };
+
   return (
     <div
       className={`Home ${isLight ? "light" : "dark"} ${
@@ -59,23 +116,55 @@ const Home = () => {
     >
       {working ? (
         <>
+          <div>
+            <ReactModal
+              isOpen={modalIsOpen}
+              onAfterOpen={afterOpenModal}
+              style={customStyles}
+              contentLabel="Example Modal"
+            >
+              <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+                Ism va familiyangizni kiriting:{" "}
+              </h2>
+              <input
+                type="text"
+                placeholder="Ismingiz"
+                style={{ padding: 8, fontSize: 20, margin: '10px 0' }}
+                ref={firstNameInputRef}
+              />
+              <input
+                type="text"
+                placeholder="Familiyangiz"
+                style={{ padding: 8, fontSize: 20, margin: '10px 0' }}
+                ref={lastNameInputRef}
+              />
+              <button onClick={submitModal} style={{padding: 3, width: 120, fontSize: 23, margin: '10px 0'}}>Qo'shish</button>
+            </ReactModal>
+          </div>
           <HSideleft
             toggleArial={toggleArial}
             toggleTimes={toggleTimes}
             toggleLight={toggleLight}
             toggleDark={toggleDark}
+            resetAll={resetAll}
           />
           <HMain
             text={splittedText.join(" ")}
             correctText={correctText}
             handleChange={handleChange}
+            isLight={isLight}
           />
-          <HSideright count={count} />
+          <HSideright count={count} bool1={bool1} isLight={isLight}/>
+          <h3 style={{fontSize: 25, width: 300, textAlign: "center"}}>
+            {firstNameInputRef.current && lastNameInputRef.current
+              ? firstNameInputRef.current.value +
+                "  " +
+                lastNameInputRef.current.value
+              : ""}
+          </h3>
         </>
       ) : (
-        <div style={{ fontSize: 48 }}>
-          Siz {correctText.split(" ").length} ta so'z yozdingiz!
-        </div>
+        <FinishedModal correctText={correctText} />
       )}
     </div>
   );
