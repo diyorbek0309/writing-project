@@ -4,6 +4,7 @@ import HMain from "./components/HMain";
 import HSideleft from "./components/HSideleft";
 import HSideright from "./components/HSideright";
 import FinishedModal from "./components/Modal";
+import { dummyText } from "./text";
 
 const customStyles = {
   content: {
@@ -19,9 +20,12 @@ const customStyles = {
 };
 
 const Home = () => {
-  const text = `To help you get started, put together a list of 22 fun Javascript projects you can start working on right now. I included both beginner-level and intermediate level ideas to make sure things get boring. Browse through the list and click through to any JavaScript project you find intriguing. If you find a project idea that matches your goals and skill level, start building it right away!`;
+  let randomNumber = Math.round(Math.random() * 700);
+
   let [correctText, setCorrectText] = useState("");
-  let [splittedText, setSplittedText] = useState(text.split(" "));
+  let [text, setText] = useState(
+    dummyText.split(" ").slice(randomNumber, randomNumber + 160)
+  );
   let [bool, setBool] = useState(true);
   let [bool1, setBool1] = useState(true);
   let [count, setCount] = useState(2);
@@ -53,12 +57,12 @@ const Home = () => {
   const handleChange = (e) => {
     setBool1(false);
 
-    if (e.target.value === splittedText[0] + " ") {
+    if (e.target.value === text[0] + " ") {
       e.target.value = "";
-      correctText += splittedText[0] + " ";
-      splittedText = splittedText.slice(1, splittedText.length);
+      correctText += text[0] + " ";
+      text = text.slice(1, text.length);
       setCorrectText(correctText);
-      setSplittedText(splittedText);
+      setText(text);
     }
 
     if (bool) {
@@ -92,20 +96,24 @@ const Home = () => {
   };
 
   const resetAll = () => {
+    const highestTimeoutId = setTimeout(";");
+    let randomNumber = Math.round(Math.random() * 700);
+
     correctText
       .split(" ")
       .reverse()
       .forEach((word) => {
-        if (word.trim() !== "") splittedText.unshift(word);
+        if (word.trim() !== "") text.unshift(word);
       });
+
     setCorrectText("");
-    const highestTimeoutId = setTimeout(";");
     for (let i = 0; i < highestTimeoutId; i++) {
       clearTimeout(i);
     }
     setCount(60);
     setBool1(true);
     setBool(true);
+    setText(dummyText.split(" ").slice(randomNumber, randomNumber + 160));
   };
 
   const submitModal = () => {
@@ -169,7 +177,7 @@ const Home = () => {
             resetAll={resetAll}
           />
           <HMain
-            text={splittedText.join(" ")}
+            text={text.join(" ")}
             correctText={correctText}
             handleChange={handleChange}
             isLight={isLight}
@@ -186,10 +194,9 @@ const Home = () => {
       ) : (
         <FinishedModal
           correctText={correctText}
-          percent={
-            (correctText.split(" ").length - 1) / (text.split(" ").length - 1)
-          }
+          percent={(correctText.split(" ").length - 1) / (text.length - 1)}
           resetAll={resetAll}
+          setWorking={setWorking}
         />
       )}
     </div>
