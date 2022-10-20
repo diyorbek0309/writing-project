@@ -48,30 +48,31 @@
   background-color: rgb(18, 29, 237);
 }
 .HMain {
-  width: 70%;
+  width: 75%;
+  margin: 3rem;
 }
 
 .Main_input {
+  margin-bottom: 2rem;
   font-size: 2rem;
   border: none;
-  border-bottom: #656565 solid 2px;
+  border-bottom: black solid 3px;
   outline: none;
-  background-color: #fff;
-  color: #000;
+}
+
+.Text {
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: #aaa;
 }
 
 .tun {
   font-size: 2rem;
   border: none;
-  border-bottom: #656565 solid 2px;
+  border-bottom: #656565 solid 3px;
   outline: none;
   background-color: #000;
   color: #fff;
-}
-
-.Text {
-  font-size: 2rem;
-  line-height: 150%;
 }
 
 .correctText {
@@ -93,16 +94,17 @@
 }
 
 .Modal {
-  background: #656565;
+  background: #eee;
   width: 300px;
   padding: 1rem;
   margin-top: 1.2rem;
   border-radius: 0.8rem;
-  box-shadow: 0 0 15px #202020aa;
+  box-shadow: 0 1rem 2rem #eeadc6aa;
 }
 
 .Result {
-  background: #0e0eff;
+  background: #fa4688;
+  box-shadow: 0 1rem 2rem #f75e98aa;
   height: 10rem;
   padding: 1rem;
   border-radius: 0.8rem;
@@ -110,12 +112,12 @@
 .Ortga {
   width: 100%;
   height: 3rem;
-  
   margin: 2rem 0 0 0;
   font-size: 20px;
-  background: #0e0eff;
+  background: #33578f;
+  color: #fff;
   border: none;
   border-radius: 0.8rem;
   cursor: pointer;
   transition: 0.5s;
-} 
+}

@@ -24,7 +24,7 @@ const Home = () => {
 
   let [correctText, setCorrectText] = useState("");
   let [text, setText] = useState(
-    dummyText.split(" ").slice(randomNumber, randomNumber + 160)
+    dummyText.split(" ").slice(randomNumber, randomNumber + 110)
   );
   let [bool, setBool] = useState(true);
   let [bool1, setBool1] = useState(true);
@@ -113,7 +113,7 @@ const Home = () => {
     setCount(60);
     setBool1(true);
     setBool(true);
-    setText(dummyText.split(" ").slice(randomNumber, randomNumber + 160));
+    setText(dummyText.split(" ").slice(randomNumber, randomNumber + 110));
   };
 
   const submitModal = () => {

@@ -25,7 +25,9 @@ const Modal = ({ correctText, percent, setWorking, resetAll }) => {
             justifyContent: "space-between",
           }}
         >
-          <h2>{Math.round(percent * 100)} </h2>
+          <h2 style={{ color: "#000", fontSize: "1rem" }}>
+            {Math.round(percent * 100)} % bajarildi
+          </h2>
           <progress
             min="0"
             max="100"
@@ -44,5 +46,5 @@ const Modal = ({ correctText, percent, setWorking, resetAll }) => {
       </div>
     </div>
   );
-};  
+};
 export default Modal;
