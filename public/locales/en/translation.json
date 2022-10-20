@@ -1,0 +1,11 @@
+{
+  "navbar1": "Test mode",
+  "navbar2": "Online competition",
+  "navbar3": "Competition",
+  "navbar4": "Help",
+  "modal": {
+    "title": "Ism va familiyangizni kiriting",
+    "placeholder1": "Ismingiz",
+    "placeholder2": "Familiyangiz"
+  }
+}

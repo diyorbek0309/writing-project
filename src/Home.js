@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactModal from "react-modal";
+import { useTranslation } from "react-i18next";
 import HMain from "./components/HMain";
 import HSideleft from "./components/HSideleft";
 import HSideright from "./components/HSideright";
@@ -20,6 +21,7 @@ const customStyles = {
 };
 
 const Home = () => {
+  const { t } = useTranslation();
   let randomNumber = Math.round(Math.random() * 700);
 
   let [correctText, setCorrectText] = useState("");
@@ -142,7 +144,7 @@ const Home = () => {
               contentLabel="Example Modal"
             >
               <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                Ism va familiyangizni kiriting:{" "}
+                {t("modal.title")}:{" "}
               </h2>
               <input
                 type="text"

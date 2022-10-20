@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./nav.module.css";
+import { useTranslation } from "react-i18next";
 
 function Nav() {
+  const { t, i18n } = useTranslation();
+
+  const langHandler = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
+
   return (
     <div className={style.navbar}>
       <div className={style.navbar_name}>
@@ -13,16 +20,22 @@ function Nav() {
       <div className={style.navbar_list}>
         <ul>
           <li className="active">
-            <Link to="/">Sinov rejimi</Link>
+            <Link to="/">{t("navbar1")}</Link>
           </li>
           <li>
-            <Link to="online-comp">Online bellashuv</Link>
+            <Link to="online-comp">{t("navbar2")}</Link>
           </li>
           <li>
-            <Link to="competition">Musobaqa</Link>
+            <Link to="competition">{t("navbar3")}</Link>
           </li>
           <li>
-            <Link to="help">Yordam</Link>
+            <Link to="help">{t("navbar4")}</Link>
+          </li>
+          <li>
+            <select name="lang" id="lang" onChange={langHandler}>
+              <option value="uz">UZ</option>
+              <option value="en">EN</option>
+            </select>
           </li>
         </ul>
       </div>
