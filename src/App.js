@@ -1,16 +1,16 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
 import "./App.css";
-import Modal from "./components/Modal";
 import Nav from "./Navbar/Nav";
+import { routes } from "./routes";
 
 function App() {
   return (
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/" index element={<Home />} />
-        <Route path="/result" index element={<Modal />} />
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
       </Routes>
     </div>
   );
