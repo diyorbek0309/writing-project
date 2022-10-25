@@ -4,6 +4,21 @@ import { useTranslation } from "react-i18next";
 
 const Modal = ({ correctText, percent, setWorking, resetAll }) => {
   const { t } = useTranslation();
+  let length = localStorage.getItem("history")
+    ? JSON.parse(localStorage.getItem("history")).length
+    : 0;
+  localStorage.setItem(
+    "history",
+    JSON.stringify([
+      {
+        id: length,
+        date: Date.now(),
+        result: correctText.split(" ").length - 1,
+        percent: Math.round(percent * 100),
+      },
+    ])
+  );
+
   return (
     <div className={classes.Modalcontainer}>
       <p className={classes.Modal_par}>{t("your_result")}</p>

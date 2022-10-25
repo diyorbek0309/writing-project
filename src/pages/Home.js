@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
-import HMain from "./components/HMain";
-import HSideleft from "./components/HSideleft";
-import HSideright from "./components/HSideright";
-import FinishedModal from "./components/Modal";
-import { dummyTextUZ, dummyTextEN } from "./text";
+import HMain from "../components/HMain";
+import HSideleft from "../components/HSideleft";
+import HSideright from "../components/HSideright";
+import FinishedModal from "../components/Modal";
+import { dummyTextUZ, dummyTextEN } from "../text";
 
 const customStyles = {
   content: {
@@ -40,7 +40,7 @@ const Home = () => {
 
   let [bool, setBool] = useState(true);
   let [bool1, setBool1] = useState(true);
-  let [count, setCount] = useState(10);
+  let [count, setCount] = useState(9);
   let [working, setWorking] = useState(true);
   let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
@@ -165,12 +165,18 @@ const Home = () => {
                 placeholder={t("modal.placeholder1")}
                 style={{ padding: 8, fontSize: 20, margin: "10px 0" }}
                 ref={firstNameInputRef}
+                required
+                minLength="3"
+                maxLength="24"
               />
               <input
                 type="text"
                 placeholder={t("modal.placeholder2")}
                 style={{ padding: 8, fontSize: 20, margin: "10px 0" }}
                 ref={lastNameInputRef}
+                required
+                minLength="3"
+                maxLength="24"
               />
               <button
                 onClick={submitModal}

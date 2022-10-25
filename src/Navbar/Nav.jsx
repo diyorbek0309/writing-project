@@ -24,7 +24,7 @@ function Nav() {
             <Link to="/">{t("navbar1")}</Link>
           </li>
           <li>
-            <Link to="online-comp">{t("navbar2")}</Link>
+            <Link to="history">{t("navbar2")}</Link>
           </li>
           <li>
             <Link to="competition">{t("navbar3")}</Link>
