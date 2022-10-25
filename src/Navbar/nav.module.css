@@ -64,3 +64,20 @@
   text-decoration: none;
   color: #000;
 }
+
+select {
+  background-color: gold;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 5rem; */
+}
+
+.navbar h2 {
+  position: absolute;
+  right: 5rem;
+  color: #8a1e2f;
+}
