@@ -1,12 +1,14 @@
 import React from "react";
 import classes from "./Home.module.css";
+import { useTranslation } from "react-i18next";
 
 const Modal = ({ correctText, percent, setWorking, resetAll }) => {
+  const { t } = useTranslation();
   return (
     <div className={classes.Modalcontainer}>
-      <p className={classes.Modal_par}>Sizning natijangiz.</p>
+      <p className={classes.Modal_par}>{t("your_result")}</p>
       <div className={classes.Modal}>
-        <h2 style={{ marginBottom: 20 }}>
+        <h2 style={{ marginBottom: 20, color: "#000" }}>
           {localStorage.getItem("firstName") +
             " " +
             localStorage.getItem("lastName")}
@@ -26,7 +28,7 @@ const Modal = ({ correctText, percent, setWorking, resetAll }) => {
           }}
         >
           <h2 style={{ color: "#000", fontSize: "1rem" }}>
-            {Math.round(percent * 100)} % bajarildi
+            {Math.round(percent * 100)} % {t("done")}
           </h2>
           <progress
             min="0"
@@ -41,7 +43,7 @@ const Modal = ({ correctText, percent, setWorking, resetAll }) => {
             resetAll();
           }}
         >
-          Ortga
+          {t("back")}
         </button>
       </div>
     </div>

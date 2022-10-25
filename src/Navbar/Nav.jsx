@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 function Nav() {
   const { t, i18n } = useTranslation();
+  const lang = localStorage.getItem("lang") || "uz";
 
   const langHandler = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -32,7 +33,7 @@ function Nav() {
             <Link to="help">{t("navbar4")}</Link>
           </li>
           <li>
-            <select name="lang" id="lang" onChange={langHandler}>
+            <select name="lang" id="lang" onChange={langHandler} value={lang}>
               <option value="uz">UZ</option>
               <option value="en">EN</option>
             </select>

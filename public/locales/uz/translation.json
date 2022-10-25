@@ -6,6 +6,10 @@
   "modal": {
     "title": "Ism va familiyangizni kiriting",
     "placeholder1": "Ismingiz",
-    "placeholder2": "Familiyangiz"
-  }
+    "placeholder2": "Familiyangiz",
+    "add": "Qo'shish"
+  },
+  "done": "Bajarildi",
+  "back": "Ortga",
+  "your_result": "Sizning natijangiz:"
 }
