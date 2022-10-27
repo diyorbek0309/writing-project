@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
-import HMain from "./components/HMain";
-import HSideleft from "./components/HSideleft";
-import HSideright from "./components/HSideright";
-import FinishedModal from "./components/Modal";
-import { dummyText } from "./text";
+import HMain from "../components/HMain";
+import HSideleft from "../components/HSideleft";
+import HSideright from "../components/HSideright";
+import FinishedModal from "../components/Modal";
+import { dummyTextUZ, dummyTextEN } from "../text";
 
 const customStyles = {
   content: {
@@ -21,16 +21,26 @@ const customStyles = {
 };
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const [lang, setLang] = useState(localStorage.getItem("lang"));
   let randomNumber = Math.round(Math.random() * 700);
 
-  let [correctText, setCorrectText] = useState("");
   let [text, setText] = useState(
-    dummyText.split(" ").slice(randomNumber, randomNumber + 110)
+    lang === "uz"
+      ? dummyTextUZ.split(" ").slice(randomNumber, randomNumber + 110)
+      : dummyTextEN.split(" ").slice(randomNumber, randomNumber + 110)
   );
+  i18n.on("languageChanged", (l) => {
+    setLang(l);
+    resetAll();
+  });
+
+  let [correctText, setCorrectText] = useState("");
+
   let [bool, setBool] = useState(true);
   let [bool1, setBool1] = useState(true);
-  let [count, setCount] = useState(60);
+  let [count, setCount] = useState(9);
   let [working, setWorking] = useState(true);
   let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
@@ -115,7 +125,11 @@ const Home = () => {
     setCount(60);
     setBool1(true);
     setBool(true);
-    setText(dummyText.split(" ").slice(randomNumber, randomNumber + 110));
+    setText(
+      lang === "uz"
+        ? dummyTextUZ.split(" ").slice(randomNumber, randomNumber + 110)
+        : dummyTextEN.split(" ").slice(randomNumber, randomNumber + 110)
+    );
   };
 
   const submitModal = () => {
@@ -148,15 +162,21 @@ const Home = () => {
               </h2>
               <input
                 type="text"
-                placeholder="Ismingiz"
+                placeholder={t("modal.placeholder1")}
                 style={{ padding: 8, fontSize: 20, margin: "10px 0" }}
                 ref={firstNameInputRef}
+                required
+                minLength="3"
+                maxLength="24"
               />
               <input
                 type="text"
-                placeholder="Familiyangiz"
+                placeholder={t("modal.placeholder2")}
                 style={{ padding: 8, fontSize: 20, margin: "10px 0" }}
                 ref={lastNameInputRef}
+                required
+                minLength="3"
+                maxLength="24"
               />
               <button
                 onClick={submitModal}
@@ -167,7 +187,7 @@ const Home = () => {
                   margin: "10px 0",
                 }}
               >
-                Qo'shish
+                {t("modal.add")}
               </button>
             </ReactModal>
           </div>
@@ -185,13 +205,6 @@ const Home = () => {
             isLight={isLight}
           />
           <HSideright count={count} bool1={bool1} isLight={isLight} />
-          <h3 style={{ fontSize: 25, width: 300, textAlign: "center" }}>
-            {fullName.firstName + "  " + fullName.lastName}
-            <br />
-            {correctText.split(" ").length - 1
-              ? correctText.split(" ").length - 1
-              : ""}
-          </h3>
         </>
       ) : (
         <FinishedModal

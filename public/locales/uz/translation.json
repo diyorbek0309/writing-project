@@ -1,11 +1,15 @@
 {
   "navbar1": "Sinov rejimi",
-  "navbar2": "Online bellashuv",
+  "navbar2": "Natijalar",
   "navbar3": "Musobaqa",
   "navbar4": "Yordam",
   "modal": {
     "title": "Ism va familiyangizni kiriting",
     "placeholder1": "Ismingiz",
-    "placeholder2": "Familiyangiz"
-  }
+    "placeholder2": "Familiyangiz",
+    "add": "Qo'shish"
+  },
+  "done": "Bajarildi",
+  "back": "Ortga",
+  "your_result": "Sizning natijangiz:"
 }

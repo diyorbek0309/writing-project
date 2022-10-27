@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 function Nav() {
   const { t, i18n } = useTranslation();
+  const lang = localStorage.getItem("lang") || "uz";
 
   const langHandler = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -23,7 +24,7 @@ function Nav() {
             <Link to="/">{t("navbar1")}</Link>
           </li>
           <li>
-            <Link to="online-comp">{t("navbar2")}</Link>
+            <Link to="history">{t("navbar2")}</Link>
           </li>
           <li>
             <Link to="competition">{t("navbar3")}</Link>

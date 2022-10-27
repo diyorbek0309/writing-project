@@ -1,11 +1,15 @@
 {
   "navbar1": "Test mode",
-  "navbar2": "Online competition",
+  "navbar2": "Results",
   "navbar3": "Competition",
   "navbar4": "Help",
   "modal": {
-    "title": "Ism va familiyangizni kiriting",
-    "placeholder1": "Ismingiz",
-    "placeholder2": "Familiyangiz"
-  }
+    "title": "Enter your name and surname",
+    "placeholder1": "Name",
+    "placeholder2": "Surname",
+    "add": "Add"
+  },
+  "done": "done",
+  "back": "Back",
+  "your_result": "Your result:"
 }
