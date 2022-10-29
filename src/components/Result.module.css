@@ -1,5 +1,5 @@
 .result_table {
-  margin: 8rem 14rem;
+  margin: 4rem 14rem;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
@@ -21,7 +21,7 @@ td {
   height: 3rem;
 }
 .result_table table td {
-  height: 8rem;
+  height: 4rem;
 }
 .result_table thead {
   display: table-header-group;

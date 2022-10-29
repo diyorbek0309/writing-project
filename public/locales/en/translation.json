@@ -11,5 +11,11 @@
   },
   "done": "done",
   "back": "Back",
-  "your_result": "Your result:"
+  "your_result": "Your result:",
+  "result": {
+    "title": "Results",
+    "time": "Date",
+    "percent": "Percent",
+    "empty": "You haven't attempted any tests yet!"
+  }
 }

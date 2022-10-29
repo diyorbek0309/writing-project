@@ -11,5 +11,11 @@
   },
   "done": "Bajarildi",
   "back": "Ortga",
-  "your_result": "Sizning natijangiz:"
+  "your_result": "Sizning natijangiz:",
+  "result": {
+    "title": "Natijalar",
+    "time": "Vaqt",
+    "percent": "Foiz",
+    "empty": "Siz hali urinish amalga oshirmadingiz!"
+  }
 }
