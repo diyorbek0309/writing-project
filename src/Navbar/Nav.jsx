@@ -32,13 +32,13 @@ function Nav() {
           <li>
             <Link to="help">{t("navbar4")}</Link>
           </li>
-          <li>
-            <select name="lang" id="lang" onChange={langHandler} value={lang}>
-              <option value="uz">UZ</option>
-              <option value="en">EN</option>
-            </select>
-          </li>
         </ul>
+      </div>
+      <div className="select">
+        <select name="lang" id="lang" onChange={langHandler}>
+          <option value="uz">UZ</option>
+          <option value="en">EN</option>
+        </select>
       </div>
       <h2>
         {localStorage.getItem("firstName")

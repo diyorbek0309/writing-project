@@ -1,0 +1,21 @@
+.help_wrap {
+  padding: 2rem 4.5rem;
+  display: flex;
+}
+
+.img_wrap {
+}
+
+.text_wrap {
+  width: 50%;
+  height: 100vh;
+}
+
+.text_wrap h1 {
+  font-size: 3rem;
+  padding-bottom: 2rem;
+}
+
+.text_wrap p {
+  font-size: 1.5rem;
+}
