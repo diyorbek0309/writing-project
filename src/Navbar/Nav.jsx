@@ -35,7 +35,7 @@ function Nav() {
         </ul>
       </div>
       <div className="select">
-        <select name="lang" id="lang" onChange={langHandler}>
+        <select name="lang" id="lang" onChange={langHandler} value={lang}>
           <option value="uz">UZ</option>
           <option value="en">EN</option>
         </select>
