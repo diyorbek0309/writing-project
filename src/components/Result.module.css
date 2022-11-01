@@ -1,5 +1,7 @@
 .result_table {
-  margin: 4rem 14rem;
+  position: fixed;
+  top: 10rem;
+  padding: 4rem 14rem;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
@@ -14,6 +16,7 @@
 .result_table table,
 th,
 td {
+  padding: 0 7rem;
   border-bottom: 1px solid #aaa;
 }
 .result_table table th {

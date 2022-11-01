@@ -1,11 +1,13 @@
 import React from "react";
 import "./Help.css";
-// import Img from "./working.png";
+import Img from "./working.png";
 
 function Help() {
   return (
     <div className="help_wrap">
-      {/* <div className="img_wrap"><Imwg /></div> */}
+      <div className="img_wrap">
+        <img src={Img} />
+      </div>
       <div className="text_wrap">
         <h1>Siz uchun foydali</h1>
         <p>

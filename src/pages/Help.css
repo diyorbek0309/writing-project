@@ -1,9 +1,25 @@
 .help_wrap {
+  position: relative;
+  top: 130px;
+  z-index: -1;
   padding: 2rem 4.5rem;
   display: flex;
+  justify-content: space-between;
 }
 
 .img_wrap {
+  position: fixed;
+  top: 100px;
+  right: 0px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.img_wrap img {
+  width: 50rem;
 }
 
 .text_wrap {

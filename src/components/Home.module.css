@@ -1,4 +1,6 @@
 .HSideleft {
+  position: fixed;
+  top: 10rem;
   width: 10%;
   display: flex;
   align-items: center;
@@ -48,6 +50,9 @@
   background-color: rgb(18, 29, 237);
 }
 .HMain {
+  position: fixed;
+  top: 10rem;
+  left: 12rem;
   width: 75%;
   margin: 3rem;
 }
@@ -80,6 +85,8 @@
 }
 
 .Modalcontainer {
+  position: fixed;
+  top: 10rem;
   display: flex;
   flex-direction: column;
   color: #fff;

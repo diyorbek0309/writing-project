@@ -1,4 +1,7 @@
 .anime {
+  position: fixed;
+  top: 10rem;
+  right: 4rem;
   margin: 0 35px;
   width: 40px;
   height: 500px;
@@ -28,11 +31,11 @@
 }
 
 .kun {
- color: white;
- background-color: black;
+  color: white;
+  background-color: black;
 }
 
 .tun {
   color: black;
   background-color: white;
- }
+}

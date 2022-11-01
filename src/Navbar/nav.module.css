@@ -1,6 +1,7 @@
 .navbar {
-  width: 100%;
+  position: fixed;
   height: 8rem;
+  width: 100%;
   padding: 0 5rem;
   /* background-color: #eee; */
   background: linear-gradient(
@@ -34,8 +35,8 @@
   line-height: 5px;
   padding-left: 0;
   letter-spacing: 0.5rem;
-  color: aqua;
-  text-shadow: 0 0 5px aqua;
+  color: rgb(55, 0, 255);
+  text-shadow: rgb(55, 0, 255);
 }
 
 .navbar_list ul {
