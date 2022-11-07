@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Home.module.css";
 
-
 const HMain = ({ correctText, text, handleChange, isLight }) => {
   return (
     <div className={styles.HMain}>
