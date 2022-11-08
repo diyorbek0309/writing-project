@@ -1,6 +1,4 @@
 .HSideleft {
-  position: fixed;
-  top: 10rem;
   width: 10%;
   display: flex;
   align-items: center;
@@ -50,8 +48,6 @@
   background-color: rgb(18, 29, 237);
 }
 .HMain {
-  position: fixed;
-  top: 10rem;
   left: 12rem;
   width: 75%;
   margin: 3rem;
@@ -128,4 +124,71 @@
   border-radius: 0.8rem;
   cursor: pointer;
   transition: 0.5s;
+}
+
+@media (max-width: 1860px) {
+  .HSideleft {
+    width: 12%;
+  }
+  .Text {
+    font-size: 1.3rem;
+  }
+
+  .active img {
+    width: 1.6rem;
+  }
+  button img {
+    width: 1.6rem;
+  }
+  .HSideleft button {
+    padding: 0.4rem;
+  }
+  .HMain {
+    width: 65%;
+  }
+  .active {
+    width: 5rem;
+    height: 2.5rem;
+  }
+
+  .Main_input {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: black solid 2px;
+    outline: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .HSideleft {
+    width: 15%;
+  }
+  .Text {
+    font-size: 1rem;
+  }
+  .HMain {
+    width: 65%;
+  }
+  .active {
+    width: 4.5rem;
+    height: 2.5rem;
+  }
+  .active img {
+    width: 1.2rem;
+  }
+  button img {
+    width: 1.2rem;
+  }
+  .HSideleft button {
+    padding: 0.3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .w {
+    position: relative;
+    top: 30rem;
+    transform: scale(90deg);
+  }
 }

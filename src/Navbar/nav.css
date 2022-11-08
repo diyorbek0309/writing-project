@@ -1,5 +1,4 @@
 .navbar {
-  position: fixed;
   height: 8rem;
   width: 100%;
   padding: 0 5rem;
@@ -158,7 +157,7 @@ select {
     width: 5rem;
   }
   .navbar_name h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .navbar_list a {
@@ -166,7 +165,7 @@ select {
     font-size: 0.6rem;
   }
   .navbar h2 {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }
 
