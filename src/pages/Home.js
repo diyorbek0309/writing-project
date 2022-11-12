@@ -40,7 +40,7 @@ const Home = () => {
 
   let [bool, setBool] = useState(true);
   let [bool1, setBool1] = useState(true);
-  let [count, setCount] = useState(9);
+  let [count, setCount] = useState(60);
   let [working, setWorking] = useState(true);
   let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
