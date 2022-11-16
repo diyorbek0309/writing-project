@@ -26,12 +26,20 @@ const Result = () => {
                   <td>{item.result}</td>
                   <td>{item.percent}%</td>
                   <td>
-                    {`${new Date(item.date).getHours()}:${new Date(
-                      item.date
-                    ).getMinutes()} 
-                      ${new Date(item.date).getDate()}-${
-                      new Date(item.date).getMonth() + 1
-                    }-${new Date(item.date).getFullYear()}`}
+                    <ul
+                      style={{ listStyleType: "none"}}
+                    >
+                      <li>
+                        {`${new Date(item.date).getHours()}:${new Date(
+                          item.date
+                        ).getMinutes()}`}
+                      </li>
+                      <li style={{ minWidth: 130 }}>
+                        {`${new Date(item.date).getDate()}-${
+                          new Date(item.date).getMonth() + 1
+                        }-${new Date(item.date).getFullYear()}`}
+                      </li>
+                    </ul>
                   </td>
                 </tr>
               ))}

@@ -24,6 +24,9 @@ td {
 .result_table table td {
   height: 4rem;
 }
+.result_table table td li {
+  display: inline-block;
+}
 .result_table thead {
   display: table-header-group;
   vertical-align: middle;
@@ -32,8 +35,8 @@ td {
 .result_table table td,
 th {
   vertical-align: middle;
-  font-size: 1.6rem;
-  line-height: 1.1rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
   font-weight: bold;
 }
 .result_table h2 {
