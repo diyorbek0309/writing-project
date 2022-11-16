@@ -1,26 +1,37 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Nav from "./Navbar/Nav";
-import { routes } from "./routes";
 import Home from "./pages/Home";
 import Modal from "./components/Modal";
 import Result from "./pages/Result";
 import Help from "./pages/Help";
 import Comp from "./pages/competition";
+// import { routes } from "./routes";
 
 function App() {
   let [isLight, setIsLight] = useState(true);
 
   const toggleLight = () => {
+    localStorage.setItem("isLight", true);
     setIsLight(true);
-    console.log("dfgdz", isLight);
   };
-
+  
   const toggleDark = () => {
+    localStorage.setItem("isLight", false);
     setIsLight(false);
-    console.log("dfgdz", isLight);
   };
+  
+  useEffect(() => {    
+    const webView = JSON.parse(localStorage.getItem("isLight"))
+    if (localStorage.getItem("isLight") === null) {
+      setIsLight(true)
+    } else {
+      setIsLight(
+        webView
+      );
+    }
+  }, []);
 
   return (
     <div className="App">
