@@ -1,8 +1,8 @@
 import Modal from "./components/Modal";
-import Home from "./pages/Home";
 import Result from "./pages/Result";
 import Help from "./pages/Help";
 import Comp from "./pages/competition"
+import Home from "./pages/Home";
 
 export const routes = [
   { path: "/", element: <Home /> },

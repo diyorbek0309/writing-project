@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./nav.css";
 import { useTranslation } from "react-i18next";
+import sun_icon from "../assets/sun_icon.png";
+import moon_icon from "../assets/moon_icon.png";
+import { Switch } from "../components/Utils";
 
-function Nav() {
+function Nav({toggleLight, toggleDark}) {
   const [isOpen, setIsOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const lang = localStorage.getItem("lang") || "uz";
@@ -47,12 +50,21 @@ function Nav() {
         <a href="">
           <Link to="help">{t("navbar4")}</Link>
         </a>
+        <a href=""></a>
       </div>
       <div className="select">
         <select name="lang" id="lang" onChange={langHandler} value={lang}>
           <option value="uz">UZ</option>
           <option value="en">EN</option>
         </select>
+      </div>
+      <div>
+        <Switch
+          img1={sun_icon}
+          img2={moon_icon}
+          toggleLight={toggleLight}
+          toggleDark={toggleDark}
+        />
       </div>
       <h2>
         {localStorage.getItem("firstName")

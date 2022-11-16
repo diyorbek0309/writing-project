@@ -20,7 +20,7 @@ const customStyles = {
   },
 };
 
-const Home = () => {
+const Home = ({ isLight }) => {
   const { t, i18n } = useTranslation();
 
   const [lang, setLang] = useState(localStorage.getItem("lang"));
@@ -42,7 +42,7 @@ const Home = () => {
   let [bool1, setBool1] = useState(true);
   let [count, setCount] = useState(60);
   let [working, setWorking] = useState(true);
-  let [isLight, setIsLight] = useState(true);
+  // let [isLight, setIsLight] = useState(true);
   let [isArial, setIsArial] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
   let [fullName, setFullName] = useState({ firstName: "", lastName: "" });
@@ -97,14 +97,6 @@ const Home = () => {
 
   const toggleTimes = () => {
     setIsArial(false);
-  };
-
-  const toggleLight = () => {
-    setIsLight(true);
-  };
-
-  const toggleDark = () => {
-    setIsLight(false);
   };
 
   const resetAll = () => {
@@ -194,8 +186,6 @@ const Home = () => {
           <HSideleft
             toggleArial={toggleArial}
             toggleTimes={toggleTimes}
-            toggleLight={toggleLight}
-            toggleDark={toggleDark}
             resetAll={resetAll}
           />
           <HMain
